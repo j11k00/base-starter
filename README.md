@@ -127,10 +127,16 @@ the esbuild any-origin-request issue). Going higher was tried:
 - **vite 7** requires Node `^20.19 || >=22.12`. It builds fine, but warns on
   every run under Node 22.11.
 
-`.nvmrc` asks for Node 24; if you actually install it, vite 7 becomes a clean
-upgrade. vite 6 accepts `>=22.0.0`, so it works either way — which is why it's
-the pin. Both `vite-plugin-kirby` and `@tailwindcss/vite` declare
-`^5 || ^6 || ^7 || ^8`, so neither plugin is the constraint.
+vite 6 accepts `>=22.0.0`, so it works on whatever you have — which is why it's
+the pin. Install Node 22.12+ and vite 7 becomes a clean upgrade. Both
+`vite-plugin-kirby` and `@tailwindcss/vite` declare `^5 || ^6 || ^7 || ^8`, so
+neither plugin is the constraint.
+
+The supported Node range lives in `package.json` `engines`, which npm checks on
+every install (`EBADENGINE` warning, or a hard error under `--engine-strict`).
+There's deliberately no `.nvmrc`: nothing in this project read it — no CI, and
+`bin/deploy.sh` doesn't consult it — so it only ever recorded an intention that
+drifted out of date.
 
 Visit `localhost:8888` — Vite's dev server only serves js/css/assets.
 

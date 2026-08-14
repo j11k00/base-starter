@@ -29,3 +29,9 @@ An entry that turns out to matter to *every* project is a hint it belonged in
 - `npm audit fix` for nanoid and postcss (both transitive, non-breaking).
 - `mcp/sdk` v0.7.0 → v0.7.1 (CVE-2026-53965). require-dev only, so it was never
   installed in production by `composer install --no-dev`.
+
+### Changed
+- Removed `.nvmrc` and added `engines: { node: "^20 || >=22" }` to
+  `package.json`. Nothing read `.nvmrc` — no CI, and `bin/deploy.sh` doesn't
+  consult it — so a stale pin (it said 24 while the machine ran 22.11) was worse
+  than none. `engines` is checked by npm on every install.
