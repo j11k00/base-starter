@@ -9,7 +9,7 @@
 ?>
 <?php snippet(
   'layouts/default',
-  ['grid' => true],
+  ['grid' => true, 'showTitle' => false],
   slots: true
 )
 ?>

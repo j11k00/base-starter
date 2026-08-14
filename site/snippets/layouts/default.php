@@ -9,13 +9,16 @@
  * @var \Kirby\Cms\Page $page
  * @var \Kirby\Template\Slots $slots
  * @var bool|null $grid
+ * @var bool|null $showTitle
  */
 $grid ??= false;
 
-// Templates that render their own <h1>: post/event in the article header,
-// home in its bespoke hero. Emitting global/title for those too gives the
-// page two h1s.
-$showTitle = !in_array($page->intendedTemplate()->name(), ['post', 'event', 'home'], true);
+// A template that renders its own <h1> (an article header, a hero, the error
+// page) passes showTitle => false; otherwise the shell supplies one. Declared
+// by the caller rather than matched against a list of template names here —
+// most templates now come from base-kit, and the shell shouldn't have to know
+// their names to avoid emitting a second h1.
+$showTitle ??= true;
 ?>
 
 <!doctype html>

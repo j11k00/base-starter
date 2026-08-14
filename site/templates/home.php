@@ -18,6 +18,7 @@
 ?>
 <?php snippet(
   'layouts/default',
+  ['showTitle' => false], // the hero below renders the h1
   slots: true
 )
 ?>

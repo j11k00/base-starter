@@ -7,6 +7,7 @@
 ?>
 <?php snippet(
   'layouts/default',
+  ['showTitle' => false],
   slots: true
 )
 ?>
