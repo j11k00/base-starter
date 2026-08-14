@@ -114,6 +114,24 @@ npm run build    # production assets -> public/dist
 npm run preview  # build, then serve it
 ```
 
+### Why vite is pinned to `^6`
+
+Not inertia — `^6.4.3` is the lowest release without the dev-server advisories
+(path traversal in optimized-deps `.map` handling, `server.fs.deny` bypass, and
+the esbuild any-origin-request issue). Going higher was tried:
+
+- **vite 8** switched to rolldown, whose `@rolldown/binding-darwin-x64` native
+  binary npm refuses to install on Intel macOS ([npm/cli#4828](https://github.com/npm/cli/issues/4828)).
+  Forcing it would pin a platform-specific binary that breaks `npm ci` on the
+  Linux deploy server.
+- **vite 7** requires Node `^20.19 || >=22.12`. It builds fine, but warns on
+  every run under Node 22.11.
+
+`.nvmrc` asks for Node 24; if you actually install it, vite 7 becomes a clean
+upgrade. vite 6 accepts `>=22.0.0`, so it works either way — which is why it's
+the pin. Both `vite-plugin-kirby` and `@tailwindcss/vite` declare
+`^5 || ^6 || ^7 || ^8`, so neither plugin is the constraint.
+
 Visit `localhost:8888` — Vite's dev server only serves js/css/assets.
 
 Frontend entry is `src/index.js` / `src/index.css`. Tailwind scans this repo's

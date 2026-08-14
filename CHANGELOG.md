@@ -20,3 +20,12 @@ An entry that turns out to matter to *every* project is a hint it belonged in
 `muoto/base-kit` instead — where it would have propagated on its own.
 
 ## Unreleased
+
+### Security
+- vite `^5` → `^6.4.3` — clears three dev-server advisories (path traversal in
+  optimized-deps `.map` handling, `server.fs.deny` bypass, esbuild
+  any-origin-request). Build output and block classes verified unchanged.
+  vite 7/8 were tried and rejected; see README "Why vite is pinned to ^6".
+- `npm audit fix` for nanoid and postcss (both transitive, non-breaking).
+- `mcp/sdk` v0.7.0 → v0.7.1 (CVE-2026-53965). require-dev only, so it was never
+  installed in production by `composer install --no-dev`.
