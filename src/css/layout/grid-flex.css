@@ -1,0 +1,9 @@
+.grid-flex {
+  --min: 20ch;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-flex > * {
+  flex: 1 1 var(--min);
+}

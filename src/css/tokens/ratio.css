@@ -1,0 +1,14 @@
+@theme {
+  /* Reset */
+  --aspect-*: initial;
+
+  /* Aspect Ratios */
+  --aspect-square: 1 / 1;
+  --aspect-photo: 3 / 2;
+  --aspect-photo\/portrait: 2 / 3;
+  --aspect-landscape: 4 / 3;
+  --aspect-video: 16 / 9;
+  --aspect-phone: 9 / 16;
+  --aspect-cinema: 1.85 / 1;
+  --aspect-ultrawide: 18 / 5;
+}

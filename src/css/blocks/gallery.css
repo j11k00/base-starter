@@ -1,0 +1,42 @@
+/**
+ * Gallery block — snippets/blocks/gallery.php (.m-gallery).
+ */
+
+/* Image baseline — lets aspect-ratio / object-fit work (also used by card media) */
+figure > img,
+figure > a > img,
+.m-gallery li img {
+  display: block;
+  width: 100%;
+}
+
+.m-gallery > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* --col-min set directly on the ul */
+.m-gallery--grid > ul {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, var(--col-min, 16rem)), 1fr)
+  );
+  gap: var(--gap, var(--spacing-md));
+}
+
+/* Reel (Every Layout) */
+.m-gallery--reel > ul {
+  display: flex;
+  overflow-x: auto;
+  gap: var(--gap, var(--spacing-md));
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.m-gallery--reel > ul > li {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  width: var(--col-min, 20rem);
+}

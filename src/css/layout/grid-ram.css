@@ -1,0 +1,10 @@
+.grid-ram {
+  --min: 25ch;
+  --fit: auto-fit;
+
+  display: grid;
+  grid-template-columns: repeat(
+    var(--fit),
+    minmax(min(100%, var(--min, 25ch)), 1fr)
+  );
+}

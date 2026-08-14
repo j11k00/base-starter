@@ -1,0 +1,137 @@
+@layer base {
+  html {
+    @apply bg-accent not-motion-reduce:scroll-smooth;
+  }
+
+  html,
+  body {
+    @apply overflow-x-clip;
+  }
+
+  body {
+    @apply font-body text-base relative min-h-screen bg-bg text-contrast-medium transition-colors duration-150;
+
+    *,
+    ::before,
+    ::after {
+      @apply border-stone-200 dark:border-stone-700;
+    }
+  }
+
+  /* p {
+    @apply max-w-prose;
+  } */
+
+  p,
+  li,
+  figcaption {
+    @apply text-pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-contrast-high font-heading;
+    font-weight: 600;
+    & > a {
+      text-decoration: none;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply text-balance;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-4xl;
+    font-weight: 600;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  a {
+    @apply underline decoration-current underline-offset-2 text-contrast-high;
+
+    &:hover {
+      @apply text-accent;
+    }
+  }
+
+  [aria-current="page"] {
+    @apply !underline !underline-offset-4;
+  }
+
+  hr {
+    @apply border-t border-t-contrast-low;
+  }
+
+  [role="list"] {
+    list-style: none;
+  }
+
+  mark,
+  ::selection {
+    @apply bg-contrast-high text-bg;
+  }
+
+  :focus:not(:focus-visible) {
+    @apply outline-none;
+  }
+
+  :focus-visible {
+    @apply rounded-[1px] outline-2 outline-offset-4 outline-inherit;
+  }
+
+  :target {
+    @apply scroll-my-[4ex];
+  }
+
+  .button {
+    @apply whitespace-nowrap text-bg no-underline bg-contrast-high border border-contrast-high px-4 py-2 tracking-wide transition hover:opacity-75 text-center focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-contrast-high active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed;
+  }
+
+  code {
+    @apply bg-surface px-1.5 py-0.5;
+  }
+
+  @view-transition {
+    navigation: auto;
+  }
+
+  /* Move these to a separate file? */
+
+  [x-cloak] {
+    display: none !important;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Progressive Enhancement: Scroll Animation */
+  /* With JS enabled: Hide items until they scroll into view */
+
+  /* When intersected: Animate into view */
+  .fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+}

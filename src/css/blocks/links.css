@@ -1,0 +1,9 @@
+/**
+ * Links block — snippets/blocks/links.php (.m-links).
+ */
+
+.m-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}

@@ -1,0 +1,9 @@
+Title: Category
+
+----
+
+Description: The one seed taxonomy. Add more from the Taxonomies panel area.
+
+----
+
+Uuid: category

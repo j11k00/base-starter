@@ -1,0 +1,54 @@
+:root {
+  --focus-color: 60, 6%, 14%;
+  --focus-weight: 4px;
+}
+
+.link-object {
+  position: relative;
+  /* transition: translate .2s ease-out; */
+}
+
+/* .link-object:focus-within {
+     translate: 0 -.2em;
+ } */
+
+.link-object a {
+  text-decoration: none !important;
+}
+
+.link-object:hover a {
+  text-decoration: underline !important;
+}
+
+.link-object :focus {
+  box-shadow: none;
+  outline: none;
+  text-decoration: underline !important;
+}
+
+.link-object:focus-within {
+  box-shadow: 0 0 0 var(--focus-weight) hsla(var(--focus-color), 0.25);
+}
+
+.link-object:hover {
+  position: relative;
+  cursor: pointer;
+  /* translate: 0 -.2em; */
+}
+
+.link-object__anchor::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* background-color: aliceblue; */
+}
+
+.link-object a:not(.link-object__anchor) {
+  position: relative;
+}
+
+/* .link-object a:not(.link-object__anchor) :focus,
+ .link-object a:not(.link-object__anchor) :hover {
+     color: red;
+ } */

@@ -1,0 +1,18 @@
+/**
+ * Text + heading blocks — snippets/blocks/text.php, heading.php.
+ * Imported before gallery/list so their --grid rules win the --col-min cascade.
+ */
+
+.m-align-center {
+  text-align: center;
+}
+
+.m-align-right {
+  text-align: right;
+}
+
+/* Text columns — triggered by the inline --col-min style the text block sets */
+[style*="--col-min"] {
+  columns: var(--col-min) auto;
+  column-gap: var(--gap, var(--spacing-md));
+}

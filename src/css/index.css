@@ -1,0 +1,61 @@
+/**
+ * Shared theme stylesheet. Imported from src/index.css, which adds the
+ * site-specific @source globs and token overrides.
+ */
+
+@import "tailwindcss";
+
+/* Scan the base-kit plugin's own templates and snippets for classes
+   (paths relative to this file at src/css/) */
+@source "../../site/plugins/base-kit/snippets/**/*.php";
+@source inline("sr-only hidden block flex inline-block border-t");
+@source inline("text-xs text-sm text-base text-lg text-xl text-2xl text-3xl text-4xl");
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+:root {
+  color-scheme: light dark;
+  &[data-theme="dark"] {
+    color-scheme: dark;
+  }
+  &[data-theme="light"] {
+    color-scheme: light;
+  }
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+/* :: @theme */
+
+@import "./tokens/fonts";
+@import "./tokens/typography";
+@import "./tokens/colours";
+@import "./tokens/spacing";
+/* @import "./tokens/ratio"; */
+/* @import "./tokens/animation"; */
+
+/* :: @base */
+
+@import "./global/global";
+
+/* :: @components */
+
+@import "./components/card";
+@import "./components/button";
+@import "./components/link-object";
+@import "./layout/layout";
+@import "./components/prose";
+
+/* :: @blocks — one file per block; the plugin ships the BEM markup, these
+   style it. Import text before gallery/list so their --grid rules win. */
+
+@import "./blocks/text";
+@import "./blocks/gallery";
+@import "./blocks/list";
+@import "./blocks/links";
+
+/* :: @utility */
+
+@import "./utilities/grid";

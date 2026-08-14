@@ -1,0 +1,85 @@
+.prose {
+  --flow-spacing: var(--spacing-sm);
+  line-height: var(--leading-relaxed);
+}
+
+.prose > * + * {
+  margin-block-start: var(--flow-spacing, 1em);
+}
+
+.prose :where(blockquote) {
+  max-width: 52ch;
+}
+
+.prose :where(pre, pre + *, figure, figure + *, h2, h3, h4, hr) {
+  --flow-spacing: var(--spacing-xl);
+}
+
+.prose ul:not([role="list"]) > li,
+.prose ol:not([role="list"]) > li {
+  padding-inline-start: 2ch;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.prose ul li li {
+  list-style-type: circle;
+}
+
+.prose li a {
+  position: relative;
+  inset-block-start: clamp(2px, 0.2vw, 5px);
+}
+
+.prose ol li {
+  list-style-type: decimal;
+}
+.prose ol li::marker {
+  content: counters(list-item, ".") " ";
+  font-weight: bolder;
+}
+
+.prose a {
+  text-decoration: underline;
+  color: var(--color-contrast-high);
+  text-decoration-color: color-mix(in srgb, currentColor 30%, transparent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+.prose a:hover {
+  text-decoration-color: color-mix(in srgb, currentColor 90%, transparent);
+}
+
+.prose blockquote {
+  padding-inline-start: 2ch;
+  border-inline-start: 2px solid;
+  border-color: color-mix(in srgb, currentColor 30%, transparent);
+}
+
+.prose figure figcaption {
+  font-size: var(--text-sm);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.prose pre {
+  background-color: var(--color-surface);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.prose pre code {
+  font-size: var(--text-sm);
+}
+
+.prose iframe {
+  aspect-ratio: 16 / 9;
+  height: 100%;
+  width: 100%;
+}
+
+.prose figure ul li {
+  padding-inline-start: 0;
+  list-style-type: none;
+}

@@ -1,0 +1,31 @@
+Title: Hello world
+
+----
+
+Pagetitle: 
+
+----
+
+Pubdate: 2026-01-01
+
+----
+
+Taxcategory:
+
+- 'page://term-news'
+
+----
+
+Tags: starter
+
+----
+
+Summary: The seed post. It exists so the posts archive, the posts listing block and the taxonomy filter all have something to render.
+
+----
+
+Contentblocks: [{"content":{"text":"<p>Delete this page once the project has real content. It is here so <code>collection('posts')</code>, the <code>posts</code> listing block and the <code>filterByTerm()</code> pipeline are all exercised on a fresh checkout.</p>"},"id":"7f2b1c40-0000-4000-8000-000000000201","isHidden":false,"type":"text"}]
+
+----
+
+Uuid: post-hello

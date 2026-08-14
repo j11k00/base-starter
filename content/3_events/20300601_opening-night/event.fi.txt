@@ -1,0 +1,47 @@
+Title: Opening night
+
+----
+
+Pagetitle: 
+
+----
+
+Startdate: 2030-06-01
+
+----
+
+Starttime: 19:00
+
+----
+
+Endtime: 22:00
+
+----
+
+Multiday: false
+
+----
+
+Taxcategory:
+
+- 'page://term-music'
+
+----
+
+Tags: starter
+
+----
+
+Summary: The seed event. Change the date to something in the future to see it move between the upcoming and past collections.
+
+----
+
+Contentblocks: [{"content":{"text":"<p>Delete this page once the project has real content. It exists so <code>eventsUpcoming</code>, <code>eventsPast</code> and <code>eventsGrouped</code> all have something to resolve.</p>"},"id":"7f2b1c40-0000-4000-8000-000000000301","isHidden":false,"type":"text"}]
+
+----
+
+Links: 
+
+----
+
+Uuid: event-opening

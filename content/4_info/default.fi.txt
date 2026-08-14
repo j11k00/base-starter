@@ -1,0 +1,13 @@
+Title: Info
+
+----
+
+Pagetitle: 
+
+----
+
+Text: [{"content":{"text":"<p>A plain <code>default</code> page. Delete it, or use it as the starting point for anything that isn't a builder page.</p>"},"id":"7f2b1c40-0000-4000-8000-000000000101","isHidden":false,"type":"text"}]
+
+----
+
+Uuid: info

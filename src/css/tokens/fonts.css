@@ -1,0 +1,18 @@
+@theme {
+  /* Reset */
+  --font-*: initial;
+
+  /* Font Family — system stacks until the site declares real faces in
+     ../fonts.css, then point --font-brand at the family name. */
+  --font-sans:
+    Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
+  --font-serif:
+    "Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --font-brand: var(--font-serif);
+
+  /* Element Mapping */
+  --font-heading: var(--font-brand);
+  --font-body: var(--font-brand);
+}

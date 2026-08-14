@@ -1,0 +1,18 @@
+/**
+ * Brand @font-face rules — site-owned, empty in the starter.
+ *
+ * Drop woff2 files into src/assets/fonts/, declare them here, point the
+ * --font-* tokens in ./tokens/fonts.css at the family names, and add a
+ * <link rel="preload"> per face in site/snippets/global/head.php.
+ *
+ * Until then the tokens fall back to system stacks, which is a perfectly
+ * good place to start a design from.
+ *
+ * @font-face {
+ *   font-family: "Your Brand";
+ *   src: url("../assets/fonts/YourBrand-Regular.woff2") format("woff2");
+ *   font-weight: normal;
+ *   font-style: normal;
+ *   font-display: swap;
+ * }
+ */

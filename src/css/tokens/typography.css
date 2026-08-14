@@ -1,0 +1,39 @@
+/* Font Size */
+
+@theme {
+  /* Reset */
+  --text-*: initial;
+
+  /* 19,1.125 / 1240,21,1.2,5 */
+  /* --text-xs: clamp(0.9115rem, 0.9492rem + -0.0488vw, 0.9383rem);
+  --text-sm: clamp(1.0556rem, 1.0399rem + 0.0694vw, 1.0938rem);
+  --text-base: clamp(1.1875rem, 1.1364rem + 0.2273vw, 1.3125rem);
+  --text-lg: clamp(1.3359rem, 1.2381rem + 0.4347vw, 1.575rem);
+  --text-xl: clamp(1.5029rem, 1.3446rem + 0.7038vw, 1.89rem);
+  --text-2xl: clamp(1.6908rem, 1.4547rem + 1.0495vw, 2.268rem);
+  --text-3xl: clamp(1.9021rem, 1.5669rem + 1.4899vw, 2.7216rem);
+  --text-4xl: clamp(2.1399rem, 1.6793rem + 2.0473vw, 3.2659rem); */
+
+  /* 16px,1.125 / 1240,19px,1.2 */
+
+  --text-xs: clamp(0.7901rem, 0.776rem + 0.0628vw, 0.8247rem);
+  --text-sm: clamp(0.8889rem, 0.8477rem + 0.1831vw, 0.9896rem);
+  --text-base: clamp(1rem, 0.9233rem + 0.3409vw, 1.1875rem);
+  --text-lg: clamp(1.125rem, 1.0023rem + 0.5455vw, 1.425rem);
+  --text-xl: clamp(1.2656rem, 1.0838rem + 0.808vw, 1.71rem);
+  --text-2xl: clamp(1.4238rem, 1.1668rem + 1.1421vw, 2.052rem);
+  --text-3xl: clamp(1.6018rem, 1.2497rem + 1.5647vw, 2.4624rem);
+  --text-4xl: clamp(1.802rem, 1.3304rem + 2.0961vw, 2.9549rem);
+  --text-5xl: clamp(2.0273rem, 1.4061rem + 2.761vw, 3.5459rem);
+  --text-6xl: clamp(2.2807rem, 1.473rem + 3.5897vw, 4.255rem);
+
+  /* 20,1.125 / 1240,22,1.2 */
+  /* --text-xs: clamp(0.9549rem, 1.0011rem + -0.0596vw, 0.9877rem);
+  --text-sm: clamp(1.1111rem, 1.0969rem + 0.0631vw, 1.1458rem);
+  --text-base: clamp(1.25rem, 1.1989rem + 0.2273vw, 1.375rem);
+  --text-lg: clamp(1.4063rem, 1.3065rem + 0.4432vw, 1.65rem);
+  --text-xl: clamp(1.582rem, 1.4192rem + 0.7236vw, 1.98rem);
+  --text-2xl: clamp(1.7798rem, 1.5359rem + 1.084vw, 2.376rem);
+  --text-3xl: clamp(2.0023rem, 1.655rem + 1.5435vw, 2.8512rem);
+  --text-4xl: clamp(2.2525rem, 1.7744rem + 2.1253vw, 3.4214rem); */
+}

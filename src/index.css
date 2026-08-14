@@ -1,0 +1,19 @@
+/**
+ * Site-owned frontend entry (the starter a new site copies). base-kit ships
+ * no CSS beyond its Panel block assets; this file + ./css own the whole theme
+ * and must define every BEM class (m-list, card__*, etc.) the plugin markup
+ * emits. In a real site the plugin lives at vendor/muoto/base-kit — point the
+ * @source globs in ./css/index.css there.
+ */
+
+/* Fonts */
+@import "./css/fonts.css";
+
+/* Theme */
+@import "./css/index.css";
+
+/* Site-specific sources */
+@source "../site/templates/**/*.php";
+@source "../site/snippets/**/*.php";
+
+/* Site token overrides go here, e.g. @import "./tokens.css"; */

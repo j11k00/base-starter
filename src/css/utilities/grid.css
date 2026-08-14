@@ -1,0 +1,5 @@
+/* Grid */
+@utility grid-ram {
+  --min: 25ch;
+  @apply grid [grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--min)),1fr))];
+}

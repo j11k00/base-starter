@@ -1,0 +1,50 @@
+/**
+ * Card component — styles the BEM markup the base-kit plugin emits from
+ * snippets/card.php (card / card__content / card__header / card__title /
+ * card__meta / card__text / card__media). Site-owned: restyle freely.
+ */
+
+@layer components {
+  .card {
+    display: grid;
+    /* background-color: var(--color-surface); */
+
+    /* Opt into container queries when a parent wraps the card */
+    :has(> &) {
+      container-type: inline-size;
+    }
+  }
+
+  .card__content {
+    order: 1;
+    padding: var(--spacing-lg, 1rem);
+    text-align: center;
+  }
+
+  .card__media {
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+  }
+
+  .card__text {
+    display: none;
+  }
+
+  .card__content > * + * {
+    margin-top: var(--spacing-sm, 1rem);
+  }
+
+  @container (min-width: 800px) {
+    .card {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+    .card__title {
+      font-size: var(--text-2xl);
+    }
+
+    .card__text {
+      display: block;
+    }
+  }
+}

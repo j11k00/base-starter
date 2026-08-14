@@ -1,0 +1,15 @@
+Title: Posts
+
+----
+
+Pagetitle: 
+
+----
+
+Usedtaxonomies:
+
+- 'page://category'
+
+----
+
+Uuid: posts

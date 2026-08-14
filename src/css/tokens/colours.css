@@ -1,0 +1,36 @@
+/* Colours */
+
+@theme {
+  --color-current: currentColor;
+  --color-black: hsl(0, 0%, 2%);
+  --color-white: hsl(0, 0%, 98%);
+
+  --color-accent: light-dark(var(--color-indigo-500), var(--color-indigo-500));
+
+  --color-accent-subtle: light-dark(
+    var(--color-blue-300),
+    var(--color-blue-100)
+  );
+
+  --color-contrast-high: light-dark(
+    var(--color-neutral-950),
+    var(--color-neutral-50)
+  );
+
+  --color-contrast-medium: light-dark(
+    var(--color-neutral-600),
+    var(--color-neutral-300)
+  );
+
+  --color-contrast-low: light-dark(
+    var(--color-neutral-400),
+    var(--color-neutral-400)
+  );
+
+  --color-bg: light-dark(var(--color-neutral-200), var(--color-neutral-900));
+
+  --color-surface: light-dark(
+    var(--color-neutral-100),
+    var(--color-neutral-800)
+  );
+}

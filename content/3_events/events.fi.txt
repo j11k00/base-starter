@@ -1,0 +1,19 @@
+Title: Events
+
+----
+
+Pagetitle: 
+
+----
+
+Togglevisibility: false
+
+----
+
+Usedtaxonomies:
+
+- 'page://category'
+
+----
+
+Uuid: events
