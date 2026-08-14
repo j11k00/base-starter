@@ -92,15 +92,30 @@ API surface), `blocks/README.md`.
 
 ## Keep a site up to date
 
-**Kit:** `composer update muoto/base-kit`, then read the kit's `CHANGELOG.md`.
-A major bump means something in `CONTRACT.md` moved.
+**Kit:** `composer update muoto/base-kit` — scoped, not a bare `composer
+update`, which would bump Kirby and everything else in the same breath and
+leave you unable to tell which change broke things. Then read the kit's
+`CHANGELOG.md`; a major bump means something in `CONTRACT.md` moved.
 
-**Scaffold:**
+**Scaffold:** don't merge on a schedule — merge when [CHANGELOG.md](CHANGELOG.md)
+says there's something you want.
 
 ```sh
 git fetch starter
-git merge starter/main
+git log --oneline HEAD..starter/main
+git merge starter/main          # or: git cherry-pick <sha>
 ```
+
+How painful this is depends entirely on which tier the change is in — the
+changelog tags each one:
+
+- **infra** (`vite.config.js`, `bin/deploy.sh`, `public/`, `.gitignore`) — a
+  project never edits these, so merges land clean. Pull freely.
+- **layer** (`site/snippets/**`, `site/templates/**`, `src/css/blocks/**`) —
+  where the real fixes live *and* where your project has most likely diverged.
+  Read the diff; cherry-picking one commit often beats merging.
+- **seed** (`content/**`, tokens, fonts, `home.php`, languages) — meant to be
+  replaced. Don't pull these into a live project.
 
 Conflicts appear only in files the site has also edited — that's the signal, not
 a failure. Lockfiles conflict routinely; resolve them by regenerating rather
