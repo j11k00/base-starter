@@ -1,5 +1,0 @@
-Alt: Placeholder image 1
-
-----
-
-Uuid: sg-img-1

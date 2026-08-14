@@ -1,0 +1,73 @@
+Title: Blocks
+
+----
+
+Pagetitle: 
+
+----
+
+Text: [{"content":{"level":"h2","text":"Typography","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"a666ce08-b962-486d-ba69-69094262e8b7","isHidden":false,"type":"heading"},{"content":{"text":"<p>Every block below is a real base-kit fieldset rendered through this theme's CSS. Edit this page in the Panel to see how each prop behaves — it is the fastest way to check a token change against real markup.</p>","width":"narrow","columns_enabled":"false","col_min":"","gap":"","font_size":"","alignment":""},"id":"c36f8eef-e980-456b-9ac6-c6700a1bc76d","isHidden":false,"type":"text"},{"content":{"level":"h3","text":"Heading levels","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"2f6f7c98-f706-4384-8ac8-234e5440bed8","isHidden":false,"type":"heading"},{"content":{"level":"h2","text":"Heading level 2","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"3181715b-1028-4573-92c9-3e139c11156f","isHidden":false,"type":"heading"},{"content":{"level":"h3","text":"Heading level 3","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"1b98651b-0897-4fd7-9290-9e6935ef5954","isHidden":false,"type":"heading"},{"content":{"level":"h4","text":"Heading level 4","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"3ebdb007-570c-43a9-8f64-73ca12fbaca4","isHidden":false,"type":"heading"},{"content":{"level":"h5","text":"Heading level 5","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"ae8fda68-705a-4bd0-b0ca-128f9d530716","isHidden":false,"type":"heading"},{"content":{"level":"h6","text":"Heading level 6","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"bb8de076-f41f-4609-b4df-8a75ebbc1d79","isHidden":false,"type":"heading"},{"content":{"level":"h3","text":"Inline elements","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"8bda7bcc-de37-437e-8ad4-ca40f9bcd0e2","isHidden":false,"type":"heading"},{"content":{"text":"<p>Body copy with <strong>bold</strong>, <em>italic</em>, <a href=\"https://getkirby.com\">a link</a>, <code>inline code</code>, <del>deleted</del> and <sup>superscript</sup> text. The paragraph runs long enough to show the measure and leading your typography tokens produce at the default body size.</p>","width":"narrow","columns_enabled":"false","col_min":"","gap":"","font_size":"","alignment":""},"id":"cdbf7351-e7b7-40d5-b31b-a46ab031a80d","isHidden":false,"type":"text"},{"content":{"level":"h3","text":"Alignment and size","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"10b5bc78-9ccb-4454-ac20-415819d21561","isHidden":false,"type":"heading"},{"content":{"text":"<p>Centred text, larger scale.</p>","width":"narrow","columns_enabled":"false","col_min":"","gap":"","font_size":"xl","alignment":"center"},"id":"11e5d37f-bf50-4eb8-8e30-fa5ddf5a2284","isHidden":false,"type":"text"},{"content":{"text":"<p>Right-aligned, smaller scale.</p>","width":"narrow","columns_enabled":"false","col_min":"","gap":"","font_size":"sm","alignment":"right"},"id":"0dbd56fe-11e1-4ad2-8a02-344e9d224d3c","isHidden":false,"type":"text"},{"content":{"level":"h3","text":"Multi-column text","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"f07db9c5-a2df-4de3-8a5d-220378bd1c07","isHidden":false,"type":"heading"},{"content":{"text":"<p>This paragraph is set in columns via the block's own props, so the theme's <code>--col-min</code> and <code>--gap</code> tokens drive the layout rather than a utility class. Resize the window to watch the column count fall back to one.</p>","width":"narrow","columns_enabled":"true","col_min":24,"gap":"lg","font_size":"","alignment":""},"id":"eda3be34-8846-42fc-a46e-003247a134c7","isHidden":false,"type":"text"},{"content":{"width":"narrow"},"id":"b71430c9-d315-4d07-bc3d-89e0806c41b6","isHidden":false,"type":"line"},{"content":{"level":"h2","text":"Prose blocks","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"0e1bf559-6b7b-4b66-8b5f-64c1f929a384","isHidden":false,"type":"heading"},{"content":{"text":"Convention over configuration; reusable generic components over project-specific implementations.","citation":"base-kit design principles","width":"narrow"},"id":"54192cc5-0e33-43f3-a091-64c76008d8c0","isHidden":false,"type":"quote"},{"content":{"text":"Markdown block: **bold**, _italic_, `code`, and a [link](https://getkirby.com).\n\n> A nested quote.","width":"narrow"},"id":"a9d2f3d4-cd8f-4eb4-ba86-f8ff6db19b51","isHidden":false,"type":"markdown"},{"content":{"code":"public static function blockLink(Field $link, Field $text): array\n{\n    return [$href, (string) $text->or($fallback), $download];\n}","language":"php","width":"narrow"},"id":"476d9076-f1b7-4147-a28c-5b9d60372ee8","isHidden":false,"type":"code"},{"content":{"text":"<ul><li>Unordered item one</li><li>Unordered item two<ul><li>A nested item</li></ul></li></ul><ol><li>Ordered item one</li><li>Ordered item two</li></ol>","width":"narrow"},"id":"d1526828-99ac-4a99-85f1-e546ea4f26de","isHidden":false,"type":"list"},{"content":{"width":"narrow","head":["Layer","Lives in","Propagates via"],"rows":[["Kit","muoto/base-kit","composer update"],["Scaffold","base-starter","git merge starter/main"],["Site","the site repo","never"]]},"id":"5bb8168a-c546-4304-9988-7ff2376df96d","isHidden":false,"type":"table"},{"content":{"width":"narrow"},"id":"f7d5a0a0-196d-4c39-a097-46ee5f733ffd","isHidden":false,"type":"line"},{"content":{"level":"h2","text":"Media","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"f31e1699-6696-49fb-9a5b-b526939013ef","isHidden":false,"type":"heading"},{"content":{"location":"kirby","image":["file://sg-img-1"],"src":"","alt":"","caption":"A single image block, narrow width.","link":"","ratio":"","crop":"false","width":"narrow"},"id":"d2a6a7bf-43cf-4d07-ac28-367f2a8cfcfa","isHidden":false,"type":"image"},{"content":{"text":"<p>The same image at <code>wide</code> width, cropped to 16/9:</p>","width":"narrow","columns_enabled":"false","col_min":"","gap":"","font_size":"","alignment":""},"id":"088f5e1c-bc01-46ff-80e5-fedaef634dca","isHidden":false,"type":"text"},{"content":{"location":"kirby","image":["file://sg-img-2"],"src":"","alt":"","caption":"","link":"","ratio":"16/9","crop":"true","width":"wide"},"id":"4c94f057-4971-40cc-8625-09bd7823d0ab","isHidden":false,"type":"image"},{"content":{"level":"h3","text":"Gallery — grid","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"deb75404-1e68-4b3c-89ff-11eef2facc70","isHidden":false,"type":"heading"},{"content":{"images":["file://sg-img-1","file://sg-img-2","file://sg-img-3"],"caption":"","ratio":"1/1","crop":"true","width":"wide","gallery_type":"grid","col_min":"16rem","gap":"md"},"id":"f99b3dbb-f03d-4233-b457-7c9605054e48","isHidden":false,"type":"gallery"},{"content":{"level":"h3","text":"Gallery — reel","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"fbe2d5b0-5866-415e-9def-60b2e779f781","isHidden":false,"type":"heading"},{"content":{"images":["file://sg-img-1","file://sg-img-2","file://sg-img-3","file://sg-img-4"],"caption":"A horizontally scrolling reel.","ratio":"4/3","crop":"true","width":"wide","gallery_type":"reel","col_min":"","gap":"md"},"id":"9cc80dc3-4c07-4a36-9902-3a1ed5254eea","isHidden":false,"type":"gallery"},{"content":{"width":"narrow"},"id":"27e16d39-13b2-4502-ad3c-8c3b3167b8ec","isHidden":false,"type":"line"},{"content":{"level":"h2","text":"Interactive","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"ae1bf0c3-3852-46a5-a684-0704d18383a3","isHidden":false,"type":"heading"},{"content":{"level":"h3","text":"Links — default","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"6a50eb01-439d-4007-a511-e8ca0af34597","isHidden":false,"type":"heading"},{"content":{"links":[{"link":"page://posts","linktext":"Posts archive"},{"link":"page://events","linktext":"Events archive"},{"link":"https://getkirby.com","linktext":"An external link"}],"list":"false","style":"default","width":"narrow"},"id":"340354a4-8119-44d8-a505-6c8e5ebfcce7","isHidden":false,"type":"links"},{"content":{"level":"h3","text":"Links — buttons","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"98ca6f1b-091c-47f2-ace0-c2e8c24fd480","isHidden":false,"type":"heading"},{"content":{"links":[{"link":"page://home","linktext":"Home"},{"link":"page://info","linktext":"Info"}],"list":"false","style":"buttons","width":"narrow"},"id":"dfda2fc6-4489-408a-8c85-e59f6f4f6a7b","isHidden":false,"type":"links"},{"content":{"level":"h3","text":"Accordion","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"a61d5c57-d687-4f59-9cce-8a1febdaa881","isHidden":false,"type":"heading"},{"content":{"items":[{"summary":"What belongs in the kit?","details":"[{\"content\":{\"text\":\"<p>Anything Kirby resolves by name, plus the PHP behind it.</p>\",\"width\":\"\",\"columns_enabled\":\"false\",\"col_min\":\"\",\"gap\":\"\",\"font_size\":\"\",\"alignment\":\"\"},\"id\":\"7f2b1c40-0000-4000-8000-000000000739\",\"isHidden\":false,\"type\":\"text\"}]","toggleopen":"true"},{"summary":"What belongs in the site?","details":"[{\"content\":{\"text\":\"<p>Anything a designer touches or a build tool consumes.</p>\",\"width\":\"\",\"columns_enabled\":\"false\",\"col_min\":\"\",\"gap\":\"\",\"font_size\":\"\",\"alignment\":\"\"},\"id\":\"7f2b1c40-0000-4000-8000-000000000740\",\"isHidden\":false,\"type\":\"text\"}]","toggleopen":"false"}],"width":"narrow"},"id":"e6fb97dc-eae0-4f02-ab05-8383a99dc9d8","isHidden":false,"type":"accordion"},{"content":{"width":"narrow"},"id":"736561a5-fc08-4d9c-9f3f-48cdba52e1a1","isHidden":false,"type":"line"},{"content":{"level":"h2","text":"Listing blocks","width":"narrow","anchor":"","font_size":"","alignment":""},"id":"da317ab9-1a3d-4355-8cc5-10e9610c9291","isHidden":false,"type":"heading"},{"content":{"text":"<p>These pull from the kit's collections, so they stay populated as real content replaces the seed pages.</p>","width":"narrow","columns_enabled":"false","col_min":"","gap":"","font_size":"","alignment":""},"id":"94db8a2f-6261-4457-854e-ca072dd6402a","isHidden":false,"type":"text"},{"content":{"list_method":"auto","list_limit":3,"filter_term":[],"filter_tag":"","filter_author":"","posts":[],"list_style":"grid","item_size":"","gap":"","width":"wide"},"id":"e6cfb9a5-8693-40f8-b4dd-dd4c4a8dff55","isHidden":false,"type":"posts"},{"content":{"list_method":"auto","list_limit":3,"filter_when":"all","filter_term":[],"filter_tag":"","events":[],"list_style":"list","item_size":"","gap":"","width":"wide"},"id":"c56f3be7-0d50-4666-a870-f01f5942bdd6","isHidden":false,"type":"events"}]
+
+----
+
+Metatitle: 
+
+----
+
+Metatemplate: 
+
+----
+
+Usetitletemplate: true
+
+----
+
+Metadescription: 
+
+----
+
+Ogtemplate: 
+
+----
+
+Useogtemplate: true
+
+----
+
+Ogdescription: 
+
+----
+
+Ogimage: []
+
+----
+
+Cropogimage: 
+
+----
+
+Robotsindex: default
+
+----
+
+Robotsfollow: default
+
+----
+
+Robotsarchive: default
+
+----
+
+Robotsimageindex: default
+
+----
+
+Robotssnippet: default
+
+----
+
+Metainherit: 
+
+----
+
+Uuid: 9tu25pdwn9ypyrem

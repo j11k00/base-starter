@@ -14,6 +14,7 @@
 
 <!-- Main -->
 <?php slot('main') ?>
+<?= $page->template() ?>
 <section class="space-y-3xl py-3xl mt-3xl">
 	<?php snippet('layouts', ['field' => $page->layout()])  ?>
 </section>
