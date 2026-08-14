@@ -1,0 +1,66 @@
+title: Home
+icon: home
+
+# The home page is deliberately site-owned and bespoke — it is the one page
+# that almost never fits a block canvas. This blueprint lives in the *site*
+# (not in base-kit) precisely so you can rewrite it per project without
+# fighting an upstream schema. Pair it with site/templates/home.php.
+#
+# The hero fields below are a starting point, not a contract. Replace them.
+# Everything under the hero stays on `contentBlocks` so editors keep the
+# flexible part.
+
+status:
+  draft: true
+  listed: Published
+
+tabs:
+  content:
+    label: Content
+    icon: text
+    # Named columns and sections, so a project extending this file merges
+    # instead of silently wiping it.
+    columns:
+      main:
+        width: 2/3
+        sections:
+          hero:
+            type: fields
+            label: Hero
+            fields:
+              heroTitle:
+                label: Hero title
+                type: text
+              heroLede:
+                label: Lede
+                type: writer
+                inline: true
+                size: small
+              heroLinks:
+                label: Calls to action
+                type: structure
+                entry: "{{ linkText }}"
+                fields:
+                  link:
+                    type: link
+                  linkText:
+                    type: text
+          content:
+            type: fields
+            label: Below the hero
+            fields:
+              contentBlocks:
+                label: Content
+                type: blocks
+      sidebar:
+        width: 1/3
+        sections:
+          meta:
+            type: fields
+            fields:
+              cover: fields/cover
+          files:
+            type: files
+            template: blocks/image
+
+  seo: seo/page

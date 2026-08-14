@@ -1,5 +1,0 @@
-Title: Styleguide
-
-----
-
-Uuid: styleguide

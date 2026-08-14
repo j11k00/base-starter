@@ -17,15 +17,13 @@
 <!-- Main -->
 <?php slot('main') ?>
 
+<?php /* The page heading is the layout's global/title. A tag narrows the list,
+         it doesn't retitle the page — so this is a filter notice, not an h1. */ ?>
 <?php if (empty($tag) === false): ?>
-  <header>
-    <h1>
-      <small><?= t('base.tag') ?>:</small> <?= esc($tag) ?>
-      <a href="<?= $page->url() ?>" aria-label="<?= t('base.posts.all') ?>">&times;</a>
-    </h1>
-  </header>
-<?php else: ?>
-  <?php snippet('intro') ?>
+  <p class="py-md">
+    <small><?= t('base.tag') ?>:</small> <?= esc($tag) ?>
+    <a href="<?= $page->url() ?>" aria-label="<?= t('base.posts.all') ?>">&times;</a>
+  </p>
 <?php endif ?>
 
 <?php snippet('cards', [

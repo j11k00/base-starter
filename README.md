@@ -134,11 +134,15 @@ visual layer it ships only block markup (`snippets/blocks/*`, semantic and
 BEM-classed). This repo provides the rest as a starting point, and the site owns
 it outright:
 
-- **Templates** — [site/templates](site/templates): `builder`, `default`,
-  `error`, `event(s)`, `post(s)` and the `.json` representations.
+- **Templates** — [site/templates](site/templates): `home` (bespoke — see
+  below), `builder`, `default`, `error`, `event(s)`, `post(s)` and the `.json`
+  representations.
+- **Blueprints** — [site/blueprints](site/blueprints): only `pages/home.yml`.
+  Everything else comes from the kit; add files here to override a kit
+  blueprint via `extends: base-kit/…`.
 - **Snippets** — [site/snippets](site/snippets): the shell
   `layouts/default` + `layouts`, chrome `global/{head,nav,footer,theme-toggle,
-  lang-switcher}`, and components `card`, `cards`, `image`, `intro`,
+  lang-switcher}`, and components `card`, `cards`, `image`,
   `pagination`, `post`, `prevnext`. **`card` and `image` are not optional** —
   the kit's block snippets call them by name.
 - **Block CSS** — [src/css/blocks](src/css/blocks), one file per block, styling
@@ -167,9 +171,44 @@ Kirby resolves the site root first, the plugin second.
 Templates, chrome snippets and frontend assets aren't overrides — the site owns
 them outright.
 
+## The home page is bespoke
+
+Every top-level page uses `builder` and is composed from blocks — **except
+home**. Most projects want a tailored front page, and a block canvas fights
+that rather than helping, so base-kit deliberately ships no `home` blueprint or
+template. The starter provides both site-side, to rewrite per project:
+
+- [site/blueprints/pages/home.yml](site/blueprints/pages/home.yml) — hero title,
+  lede, CTA structure, cover, plus a `contentBlocks` field so editors keep the
+  flexible part below the hero.
+- [site/templates/home.php](site/templates/home.php) — hand-written hero markup,
+  then `contentBlocks` rendered underneath.
+
+Neither is a contract. Replace the fields with whatever the project's front page
+actually needs; the rest of the kit doesn't care.
+
+## Styleguide
+
+[`/styleguide`](content/styleguide) is an unlisted `builder` page composed from
+**real base-kit blocks** — headings, text (including multi-column and alignment
+variants), quote, markdown, code, lists, table, line, single images at two
+widths, a gallery grid and a reel, links in both default and button styles, an
+accordion, and both listing blocks.
+
+Because it's blocks rather than hardcoded markup, it renders through the same
+snippets and CSS as production pages: change a token in
+[src/css/tokens](src/css/tokens) and this page shows you the result against
+every element at once. It's also the fastest smoke test that a kit upgrade
+didn't break a block. Edit it in the Panel like any other page.
+
+It's unlisted, so it stays out of the nav and listings. Delete
+`content/styleguide/` before launch if you don't want it public.
+
 ## Seed content
 
 `content/` ships a minimal set so a fresh checkout renders and exercises the
-kit: a builder `home` (with posts + events listing blocks), a `posts` archive
-with one post, an `events` archive with one event, one `default` page, and one
-`category` taxonomy with two terms. Delete it once the project has real content.
+kit: a bespoke `home` (hero + posts/events listing blocks), a `posts` archive
+with one post, an `events` archive with one event, one `default` page, the
+styleguide, an `error` page, and one `category` taxonomy with two terms. Delete
+it once the project has real content — but keep the `home`, `posts` and `events`
+UUIDs on whatever pages take over those roles.

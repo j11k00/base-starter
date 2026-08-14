@@ -11,7 +11,11 @@
  * @var bool|null $grid
  */
 $grid ??= false;
-$showTitle = !in_array($page->intendedTemplate()->name(), ['post', 'event'], true);
+
+// Templates that render their own <h1>: post/event in the article header,
+// home in its bespoke hero. Emitting global/title for those too gives the
+// page two h1s.
+$showTitle = !in_array($page->intendedTemplate()->name(), ['post', 'event', 'home'], true);
 ?>
 
 <!doctype html>

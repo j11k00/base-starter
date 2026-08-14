@@ -1,0 +1,28 @@
+Title: Home
+
+----
+
+Herotitle: Base Starter
+
+----
+
+Herolede: <p>The home page is bespoke: hand-written markup in <code>site/templates/home.php</code>, driven by fields in <code>site/blueprints/pages/home.yml</code>. Both live in the site, not in base-kit, so you can rewrite them per project. The blocks below stay editable.</p>
+
+----
+
+Herolinks: 
+
+- 
+  link: page://info
+  linkText: What this is
+- 
+  link: page://styleguide
+  linkText: Styleguide
+
+----
+
+Contentblocks: [{"content":{"level":"h2","text":"Latest posts","anchor":"","font_size":"","alignment":"","width":"narrow"},"id":"7f2b1c40-0000-4000-8000-000000000601","isHidden":false,"type":"heading"},{"content":{"list_method":"auto","filter_term":[],"filter_tag":"","filter_author":"","posts":[],"list_limit":"3","list_style":"grid","item_size":"","gap":"","width":"wide"},"id":"7f2b1c40-0000-4000-8000-000000000602","isHidden":false,"type":"posts"},{"content":{"level":"h2","text":"Upcoming events","anchor":"","font_size":"","alignment":"","width":"narrow"},"id":"7f2b1c40-0000-4000-8000-000000000603","isHidden":false,"type":"heading"},{"content":{"list_method":"auto","filter_when":"upcoming","filter_term":[],"filter_tag":"","events":[],"list_limit":"3","list_style":"grid","item_size":"","gap":"","width":"wide"},"id":"7f2b1c40-0000-4000-8000-000000000604","isHidden":false,"type":"events"}]
+
+----
+
+Uuid: home
