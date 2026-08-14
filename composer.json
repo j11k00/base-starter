@@ -11,14 +11,14 @@
     "require-dev": {
         "bnomei/kirby-mcp": "^1.10"
     },
-    "repositories": [
-        {
-            "comment": "Harness only: the kit is symlinked from the sibling checkout so edits are live. A real site replaces this with the vcs repo — see README.",
+    "repositories": {
+        "base-kit": {
+            "comment": "Harness default: the kit is symlinked from the sibling checkout so edits are live. A new project replaces this entry by name with the vcs repo — see README. Keyed rather than a list so `composer config repositories.base-kit` overwrites it instead of appending.",
             "type": "path",
             "url": "../base-kit",
             "options": { "symlink": true }
         }
-    ],
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {

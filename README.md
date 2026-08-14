@@ -41,8 +41,8 @@ cd ~/Sites/acme
 git remote rename origin starter
 gh repo create j11k00/acme --private --source=.
 
-# swap the harness's path repo for the real package
-composer config --unset repositories.0
+# swap the harness's path repo for the real package — the repositories entry is
+# keyed "base-kit", so this replaces it rather than appending a second one
 composer config repositories.base-kit --json \
   '{"type":"vcs","url":"https://github.com/j11k00/base-kit.git"}'
 composer require muoto/base-kit:^1.0
