@@ -25,14 +25,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Title -->
-  <title>
-    <?= $site->title()->esc() ?> –
-    <?= $page->pageTitle()->esc() ?>
-  </title>
-
-  <!-- SEO / Meta -->
-  <?php snippet('seo/head'); ?>
+  <?php
+  /**
+   * SEO / meta. Emits <title>, description, og:*, canonical and hreflang, with
+   * the defaults MuotoPage::metaDefaults() derives from the page's own fields.
+   *
+   * Do not add a <title> here as well — kirby-seo owns it, and the title
+   * template is configured per site in the Panel under Site → SEO.
+   */
+  snippet('seo/head');
+  ?>
 
   <!-- Theme color -->
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fefefe">
