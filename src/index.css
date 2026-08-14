@@ -1,9 +1,12 @@
 /**
- * Site-owned frontend entry (the starter a new site copies). base-kit ships
- * no CSS beyond its Panel block assets; this file + ./css own the whole theme
- * and must define every BEM class (m-list, card__*, etc.) the plugin markup
- * emits. In a real site the plugin lives at vendor/muoto/base-kit — point the
- * @source globs in ./css/index.css there.
+ * Site-owned frontend entry. base-kit ships no CSS beyond its Panel block
+ * assets; this file + ./css own the whole theme and must define every BEM
+ * class (m-list, m-gallery, card__*, …) the plugin markup emits.
+ *
+ * The plugin installs to site/plugins/base-kit — not vendor/ — because
+ * getkirby/composer-installer honours its `extra.installer-name`. The
+ * @source glob in ./css/index.css already points there; don't "fix" it to
+ * vendor/, or every m-* class is purged from the build.
  */
 
 /* Fonts */

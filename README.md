@@ -50,16 +50,46 @@ composer require muoto/base-kit:^1.0
 npm install && npm run dev
 ```
 
-Then:
+`composer config repositories.base-kit` is the important line. The starter's
+`repositories` is a **keyed object**, not a list, so passing the same key
+`base-kit` replaces the harness's local path repo instead of appending a second
+entry next to it. (`composer config --unset repositories.0` silently does
+nothing — don't reach for it.)
+
+### Rename it for the project
+
+The clone still calls itself `base-starter` in five places. Folder name alone
+isn't enough — `SITE=acme`, then:
+
+```sh
+sed -i '' "s|muoto/base-starter|muoto/$SITE|" composer.json
+sed -i '' "s|@muoto/base-starter|@muoto/$SITE|g" package.json package-lock.json
+git mv site/config/config.base-starter.test.php "site/config/config.$SITE.test.php"
+sed -i '' "s|^Title: Kirby Starter|Title: ${SITE}|" content/site.fi.txt
+composer update --lock          # the root name is in the lock's content-hash
+```
+
+The host config filename must match your Herd/Valet hostname, which comes from
+the **folder** name — so rename the folder and that file together or the
+per-host overrides silently stop loading.
+
+Also replace `LICENSE.md` (the starter is MIT; client work usually isn't) and
+this `README.md` with something about the project. Keep `CHANGELOG.md` — it's
+how you'll see what a later `git merge starter/main` is offering.
+
+### Then make it yours
 
 1. `site/config/config.php` — set `canonicalBase`, `locale`, `debug`.
 2. `site/languages/` — the starter ships `fi` (default) + `sv`.
 3. `src/assets/fonts/` + `src/css/fonts.css` — brand faces, and a
    `<link rel="preload">` per face in `site/snippets/global/head.php`.
 4. `src/css/tokens/` — colours, spacing, typography.
-5. `content/` — delete the seed pages once real content exists. Keep the UUIDs
+5. `site/templates/home.php` + `site/blueprints/pages/home.yml` — the bespoke
+   front page. Rewrite both; they're a starting point, not a contract.
+6. `content/` — delete the seed pages once real content exists. Keep the UUIDs
    `home`, `posts`, `events` on the pages that keep those roles; the kit's
-   collections resolve by UUID, never by slug.
+   collections resolve by UUID, never by slug. `content/styleguide/` is worth
+   keeping until launch — it renders every block through your tokens.
 
 ## Develop
 
