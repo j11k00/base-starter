@@ -12,7 +12,7 @@ Stack: Kirby 5 · [Vite](https://vitejs.dev/) via
 | Layer | Lives in | Updated by |
 |---|---|---|
 | **Kit** — blueprints, blocks, models, page/site methods, collections, controllers, taxonomies, translations, CLI | `muoto/base-kit`, composer-installed into `site/plugins/base-kit` | `composer update muoto/base-kit` |
-| **Scaffold** — build config, entry points, templates, chrome snippets, CSS structure, deploy script | this repo, cloned into each site | `git merge starter/main` |
+| **Scaffold** — build config, entry points, templates, chrome snippets, CSS structure, deploy script | this repo, copied once per project | nothing — a project keeps no link back |
 | **Site** — content, brand assets, fonts, tokens, config, overrides | the site repo only | never propagates |
 
 The line that settles every "where does this go?":
@@ -29,17 +29,18 @@ ships them as `config.php` and the site merges it (see
 
 Promote a site feature into the kit only when a second site needs it.
 
+**The scaffold is a starting point, not a dependency.** A project takes a copy
+and owns it outright — no upstream remote, no merges, no shared history. All
+the cross-project value lives in the kit, which is versioned and pulled through
+Composer. This repo just saves you assembling a Kirby app from scratch.
+
 ## Start a new project
 
-Clone rather than using GitHub's "Use this template" — a clone shares history
-with the starter, so later `git merge starter/main` is a clean three-way merge
-instead of `--allow-unrelated-histories` guesswork.
-
 ```sh
-git clone https://github.com/j11k00/base-starter.git ~/Sites/acme
+# copy the scaffold, then start a history of your own
+git clone --depth 1 https://github.com/j11k00/base-starter.git ~/Sites/acme
 cd ~/Sites/acme
-git remote rename origin starter
-gh repo create j11k00/acme --private --source=.
+rm -rf .git && git init
 
 # swap the harness's path repo for the real package — the repositories entry is
 # keyed "base-kit", so this replaces it rather than appending a second one
@@ -49,6 +50,10 @@ composer require muoto/base-kit:^1.0
 
 npm install && npm run dev
 ```
+
+`rm -rf .git && git init` is the decoupling: the project's history starts at its
+own first commit, with none of the scaffold's. Commit once the rename below is
+done, then add your own remote (`git remote add origin …`).
 
 `composer config repositories.base-kit` is the important line. The starter's
 `repositories` is a **keyed object**, not a list, so passing the same key
@@ -64,18 +69,26 @@ isn't enough — `SITE=acme`, then:
 ```sh
 sed -i '' "s|muoto/base-starter|muoto/$SITE|" composer.json
 sed -i '' "s|@muoto/base-starter|@muoto/$SITE|g" package.json package-lock.json
-git mv site/config/config.base-starter.test.php "site/config/config.$SITE.test.php"
+mv site/config/config.base-starter.test.php "site/config/config.$SITE.test.php"
 sed -i '' "s|^Title: Kirby Starter|Title: ${SITE}|" content/site.fi.txt
 composer update --lock          # the root name is in the lock's content-hash
 ```
+
+(Plain `mv`, not `git mv` — after `git init` nothing is tracked yet.)
 
 The host config filename must match your Herd/Valet hostname, which comes from
 the **folder** name — so rename the folder and that file together or the
 per-host overrides silently stop loading.
 
-Also replace `LICENSE.md` (the starter is MIT; client work usually isn't) and
-this `README.md` with something about the project. Keep `CHANGELOG.md` — it's
-how you'll see what a later `git merge starter/main` is offering.
+Also replace `LICENSE.md` (the starter is MIT; client work usually isn't), this
+`README.md`, and delete `CHANGELOG.md` — it documents the scaffold, not your
+project.
+
+Then make the first commit:
+
+```sh
+git add -A && git commit -m "Initial commit from base-starter"
+```
 
 ### Then make it yours
 
@@ -122,43 +135,35 @@ API surface), `blocks/README.md`.
 
 ## Keep a site up to date
 
-**Kit:** `composer update muoto/base-kit` — scoped, not a bare `composer
-update`, which would bump Kirby and everything else in the same breath and
-leave you unable to tell which change broke things. Then read the kit's
-`CHANGELOG.md`; a major bump means something in `CONTRACT.md` moved.
-
-**Scaffold:** don't merge on a schedule — merge when [CHANGELOG.md](CHANGELOG.md)
-says there's something you want.
+There is only one thing to keep in sync, and it's the kit:
 
 ```sh
+composer update muoto/base-kit
+```
+
+Scoped deliberately — a bare `composer update` bumps Kirby and everything else
+in the same breath, so when something breaks you can't tell which change did it.
+Then read the kit's `CHANGELOG.md`; a major bump means something in its
+`CONTRACT.md` moved.
+
+**The scaffold is not kept in sync.** A project has no remote pointing here and
+no shared history, by design. That's the whole trade: one propagation mechanism
+instead of two, and it's the one that's versioned and tested.
+
+The cost is real but small: a scaffold fix — a bug in `layouts/default`, a
+better `deploy.sh` — reaches future projects only. Port it to a live site by
+reading the diff and applying it:
+
+```sh
+# occasional, opt-in, from inside the project
+git remote add starter https://github.com/j11k00/base-starter.git
 git fetch starter
-git log --oneline HEAD..starter/main
-git merge starter/main          # or: git cherry-pick <sha>
+git diff HEAD:site/snippets/layouts/default.php starter/main:site/snippets/layouts/default.php
 ```
 
-How painful this is depends entirely on which tier the change is in — the
-changelog tags each one:
-
-- **infra** (`vite.config.js`, `bin/deploy.sh`, `public/`, `.gitignore`) — a
-  project never edits these, so merges land clean. Pull freely.
-- **layer** (`site/snippets/**`, `site/templates/**`, `src/css/blocks/**`) —
-  where the real fixes live *and* where your project has most likely diverged.
-  Read the diff; cherry-picking one commit often beats merging.
-- **seed** (`content/**`, tokens, fonts, `home.php`, languages) — meant to be
-  replaced. Don't pull these into a live project.
-
-Conflicts appear only in files the site has also edited — that's the signal, not
-a failure. Lockfiles conflict routinely; resolve them by regenerating rather
-than merging:
-
-```sh
-git checkout --ours composer.json package.json   # keep the site's deps
-composer update --lock && npm install
-```
-
-Sites created before this workflow have unrelated histories and need
-`--allow-unrelated-histories` on the first merge; cherry-picking the one changed
-file is usually saner.
+That's a diff to read, not a merge to resolve — no shared history required, and
+you can drop the remote again afterwards. If a fix turns out to matter to every
+project, that's the signal it belonged in the kit rather than the scaffold.
 
 ## Deploy (Ploi)
 
